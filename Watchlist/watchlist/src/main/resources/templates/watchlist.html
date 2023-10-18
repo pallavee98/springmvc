@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td {
+          border:1px solid black;
+        }
+        </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">home</a>
+		<a href="/form"
+>
+				login</a> |
+		<a href= "watchlist">
+				watchlist</a> |
+		
+	</nav>
+
+    <table style="width:100%">
+        <tr>
+            <th>title</th>
+            <th>rating</th>
+            <th>priority</th>
+            <th>comment</th>
+            <th>Update</th>
+        </tr>
+        <tr th:each="movierow:${watchlistrows}">
+            <td th:text="${movierow.title}"></td>
+            <td th:text="${movierow.rating}"></td>
+            <td th:text="${movierow.priority}"></td>
+            <td th:text="${movierow.Comment}"></td>
+            <td><a href="#" class="btn btn-info" role="button" th:href="@{/form(id=${movierow.id})}">Update</a></td>
+        </tr>
+    </table>
+</body>
+</html>

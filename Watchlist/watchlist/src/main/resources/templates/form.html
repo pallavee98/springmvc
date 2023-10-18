@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"    >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">home</a>
+		<a href="/form"
+>
+				login</a> |
+		<a href= "watchlist">
+				watchlist</a> |
+		
+	</nav>
+
+    <form th:action="@{/form}" method="post" th:object="${form}">
+
+        <label for="title" class="col">Title</label><br>
+        <div class="clo2">
+            <input th:field= " *{title}" type="text" name="title"><br>
+        </div>
+        <div class="col2">
+            <span class="text-danger" th:errors="*{title}"></span>
+        </div>
+
+        <label for="rating">Rating</label><br>
+        <input type="number" name="rating"><br>
+
+        <label for="priority">Priority</label><br>
+        <input type="text" name="priority"><br>
+
+        <label for="comment">Comment</label><br>
+        <input type="text" name="comment"><br>
+        <input type="hidden" th:field="*{id}">
+        <input type="submit" value="submit">
+
+    </form>
+</body>
+</html>
